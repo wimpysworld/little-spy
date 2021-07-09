@@ -44,7 +44,7 @@ func _input(_event: InputEvent):
 	if $Menu.visible:
 		if Input.is_action_just_pressed("ui_accept"):
 			_on_StartGame_button_up()
-		elif Input.is_action_just_pressed("ui_cancel"):
+		elif Input.is_action_just_pressed("ui_cancel") and OS.get_name() != "HTML5":
 			get_tree().quit()
 
 
