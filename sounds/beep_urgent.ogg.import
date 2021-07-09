@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/beep_urgent.ogg-db7846cc686b587481c5ac9dcefe7433.oggstr"
+
+[deps]
+
+source_file="res://sounds/beep_urgent.ogg"
+dest_files=[ "res://.import/beep_urgent.ogg-db7846cc686b587481c5ac9dcefe7433.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

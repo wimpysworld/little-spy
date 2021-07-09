@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://code/ui/SceneChange.gd" type="Script" id=1]
+
+[node name="PlayButton" type="Button"]
+margin_right = 296.0
+margin_bottom = 94.0
+size_flags_vertical = 3
+text = "Play"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

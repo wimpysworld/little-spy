@@ -1,0 +1,144 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://code/levels/Scenery.tres" type="TileSet" id=1]
+[ext_resource path="res://code/levels/Level03.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphics/background02.png" type="Texture" id=3]
+[ext_resource path="res://code/ui/UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://code/objects/ItemPlutonium.tscn" type="PackedScene" id=8]
+[ext_resource path="res://code/objects/ItemSatellite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://code/objects/Portal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://code/actors/Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://code/levels/Blocks.tres" type="TileSet" id=16]
+[ext_resource path="res://code/actors/Enemy.tscn" type="PackedScene" id=17]
+[ext_resource path="res://music/level02.ogg" type="AudioStream" id=18]
+[ext_resource path="res://code/objects/PowerUpHeart.tscn" type="PackedScene" id=19]
+[ext_resource path="res://code/objects/PowerUpParachute.tscn" type="PackedScene" id=20]
+[ext_resource path="res://code/levels/Level.gd" type="Script" id=21]
+[ext_resource path="res://code/levels/Danger.tres" type="TileSet" id=22]
+
+[node name="Level02" type="Node2D"]
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1152.0, 320.0 ],
+"_edit_lock_": true,
+"_edit_vertical_guides_": [ 2816.0 ]
+}
+level_name = "One Item Required"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.0
+autoplay = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="UI" parent="UILayer" instance=ExtResource( 7 )]
+time_limit = 45.0
+
+[node name="PauseOverlay" parent="UILayer/UI" index="0"]
+visible = false
+
+[node name="Status" parent="UILayer/UI" index="5"]
+visible = false
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -10
+follow_viewport_enable = true
+
+[node name="bg-left" type="TextureRect" parent="BackgroundLayer"]
+margin_top = -1664.0
+margin_right = 2134.0
+margin_bottom = 470.0
+rect_scale = Vector2( 1.65, 1.3 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="bg-right" type="TextureRect" parent="BackgroundLayer"]
+margin_left = 3520.0
+margin_top = -1664.0
+margin_right = 5654.0
+margin_bottom = 470.0
+rect_scale = Vector2( 1.65, 1.3 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Blocks" type="TileMap" parent="."]
+tile_set = ExtResource( 16 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 262144, 94, 0, 262145, 94, 0, 262146, 94, 0, 262147, 94, 0, 262148, 94, 0, 262149, 95, 0, 262182, 93, 0, 262183, 94, 0, 262184, 94, 0, 262185, 94, 0, 262186, 94, 0, 262187, 94, 0, 327680, 97, 0, 327681, 100, 0, 327682, 100, 0, 327683, 100, 0, 327684, 100, 0, 327685, 101, 0, 327718, 99, 0, 327719, 100, 0, 327720, 100, 0, 327721, 100, 0, 327722, 100, 0, 327723, 97, 0, 393216, 101, 0, 393259, 99, 0, 458752, 14, 0, 458795, 14, 0, 524288, 14, 0, 524331, 15, 0, 589824, 16, 0, 589867, 14, 0, 655360, 14, 0, 655403, 14, 0, 720896, 16, 0, 720929, 14, 0, 720930, 14, 0, 720933, 14, 0, 720934, 14, 0, 720935, 14, 0, 720936, 14, 0, 720939, 14, 0, 786432, 14, 0, 786460, 93, 0, 786461, 94, 0, 786462, 95, 0, 786475, 15, 0, 851968, 14, 0, 851989, 14, 0, 851990, 16, 0, 851991, 14, 0, 851992, 15, 0, 851993, 16, 0, 851994, 14, 0, 851995, 15, 0, 851996, 99, 0, 851997, 100, 0, 851998, 101, 0, 852011, 14, 0, 917504, 14, 0, 917514, 103, 0, 917515, 103, 0, 917516, 103, 0, 917517, 103, 0, 917547, 14, 0, 983040, 16, 0, 983057, 93, 0, 983058, 94, 0, 983059, 95, 0, 983083, 15, 0, 1048576, 14, 0, 1048581, 93, 0, 1048582, 94, 0, 1048583, 95, 0, 1048593, 96, 0, 1048594, 97, 0, 1048595, 98, 0, 1048619, 14, 0, 1114112, 14, 0, 1114113, 14, 0, 1114114, 15, 0, 1114115, 14, 0, 1114116, 15, 0, 1114117, 99, 0, 1114118, 100, 0, 1114119, 101, 0, 1114120, 14, 0, 1114121, 14, 0, 1114122, 16, 0, 1114123, 14, 0, 1114124, 14, 0, 1114125, 14, 0, 1114126, 16, 0, 1114127, 14, 0, 1114128, 15, 0, 1114129, 99, 0, 1114130, 100, 0, 1114131, 101, 0, 1114132, 14, 0, 1114133, 16, 0, 1114134, 14, 0, 1114135, 14, 0, 1114136, 16, 0, 1114137, 14, 0, 1114138, 15, 0, 1114139, 14, 0, 1114140, 14, 0, 1114141, 16, 0, 1114142, 14, 0, 1114143, 15, 0, 1114144, 14, 0, 1114145, 14, 0, 1114146, 14, 0, 1114147, 16, 0, 1114148, 103, 0, 1114149, 15, 0, 1114150, 16, 0, 1114151, 14, 0, 1114152, 14, 0, 1114153, 15, 0, 1114154, 14, 0, 1114155, 16, 0 )
+
+[node name="Danger" type="TileMap" parent="." groups=[
+"danger",
+]]
+tile_set = ExtResource( 22 )
+collision_layer = 16
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 917532, 1, 0, 917533, 1, 0, 917534, 1, 0 )
+
+[node name="Scenery" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 196609, 50, 0, 196612, 536870960, 0, 196646, 536870955, 0, 196647, 50, 0, 196650, 50, 0, 327682, 40, 0, 327685, 40, 0, 327718, 40, 0, 327720, 40, 0, 393217, 56, 0, 393258, 55, 0, 589853, 536870913, 0, 655400, 49, 0, 786458, 50, 0, 786471, 1073741868, 0, 786472, 1073741870, 0, 851979, 49, 0, 852007, 1073741870, 0, 917541, 46, 0, 983077, 45, 0, 1048577, 536870926, 0, 1048586, 536870930, 0, 1048596, 536870931, 0, 1048601, 50, 0, 1048606, 49, 0, 1048610, 536870930, 0, 1048613, 44, 0, 1048614, 47, 0, 1048618, 49, 0 )
+
+[node name="Portal" parent="." instance=ExtResource( 12 )]
+position = Vector2( 384, 976 )
+next_scene = ExtResource( 2 )
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Plutonium" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 2496, 640 )
+
+[node name="Satellite" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 2688, 1024 )
+
+[node name="PowerUps" type="Node" parent="."]
+
+[node name="PowerUpHeart" parent="PowerUps" instance=ExtResource( 19 )]
+visible = false
+position = Vector2( 64, -128 )
+
+[node name="PowerUpParachute" parent="PowerUps" instance=ExtResource( 20 )]
+visible = false
+position = Vector2( 192, -128 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Soldier" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 992, 1056 )
+initial_direction = 1
+
+[node name="Soldier2" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 2112, 1056 )
+initial_direction = 1
+
+[node name="Guard" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 1568, 800 )
+rank = "guard"
+
+[node name="Player" parent="." instance=ExtResource( 15 )]
+position = Vector2( 224, 515 )
+start_with_airdrop = false
+
+[node name="CameraLerp" parent="Player" index="0"]
+limit_left = 0
+limit_top = -320
+limit_right = 2816
+limit_bottom = 1152
+script = null
+
+[editable path="UILayer/UI"]
+[editable path="Player"]
+[editable path="Player/Actor"]

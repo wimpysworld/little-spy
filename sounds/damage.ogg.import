@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/damage.ogg-290acc5db9a4ffb5ab142d4897791cf7.oggstr"
+
+[deps]
+
+source_file="res://sounds/damage.ogg"
+dest_files=[ "res://.import/damage.ogg-290acc5db9a4ffb5ab142d4897791cf7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

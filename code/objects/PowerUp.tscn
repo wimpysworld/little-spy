@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sounds/power-up.ogg" type="AudioStream" id=1]
+[ext_resource path="res://code/objects/PowerUp.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.4499, 29.1731 )
+
+[node name="PowerUp" type="Area2D"]
+monitorable = false
+collision_layer = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PowerUpSprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PowerUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_PowerUp_body_entered"]

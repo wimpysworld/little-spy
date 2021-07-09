@@ -1,0 +1,635 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://code/ui/QuitButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://graphics/controls/S_Key_Dark.png" type="Texture" id=2]
+[ext_resource path="res://graphics/background01.png" type="Texture" id=3]
+[ext_resource path="res://code/ui/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/ui/ui_theme.tres" type="Theme" id=5]
+[ext_resource path="res://code/MainScreen.gd" type="Script" id=6]
+[ext_resource path="res://music/main_menu.ogg" type="AudioStream" id=7]
+[ext_resource path="res://code/levels/Scenery.tres" type="TileSet" id=8]
+[ext_resource path="res://code/objects/ItemBlueprints.tscn" type="PackedScene" id=9]
+[ext_resource path="res://code/objects/ItemComputer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://code/objects/ItemEnergyCell.tscn" type="PackedScene" id=11]
+[ext_resource path="res://code/objects/ItemTech.tscn" type="PackedScene" id=12]
+[ext_resource path="res://code/objects/ItemWarhead.tscn" type="PackedScene" id=13]
+[ext_resource path="res://code/objects/ItemLaunchButton.tscn" type="PackedScene" id=14]
+[ext_resource path="res://code/objects/ItemPlutonium.tscn" type="PackedScene" id=15]
+[ext_resource path="res://code/objects/ItemSatellite.tscn" type="PackedScene" id=16]
+[ext_resource path="res://code/objects/ItemDisk.tscn" type="PackedScene" id=17]
+[ext_resource path="res://code/objects/ItemCrate.tscn" type="PackedScene" id=18]
+[ext_resource path="res://fonts/greatlakes-nf.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://code/objects/Portal.tscn" type="PackedScene" id=20]
+[ext_resource path="res://code/levels/Level01.tscn" type="PackedScene" id=21]
+[ext_resource path="res://graphics/controls/W_Key_Dark.png" type="Texture" id=22]
+[ext_resource path="res://graphics/controls/A_Key_Dark.png" type="Texture" id=23]
+[ext_resource path="res://graphics/controls/Space_Key_Dark.png" type="Texture" id=24]
+[ext_resource path="res://graphics/controls/D_Key_Dark.png" type="Texture" id=25]
+[ext_resource path="res://fonts/i-pixel-u.ttf" type="DynamicFontData" id=26]
+[ext_resource path="res://graphics/controls/XboxOne_Dpad_Right.png" type="Texture" id=27]
+[ext_resource path="res://graphics/controls/Arrow_Down_Key_Dark.png" type="Texture" id=28]
+[ext_resource path="res://graphics/controls/Arrow_Up_Key_Dark.png" type="Texture" id=29]
+[ext_resource path="res://graphics/controls/XboxOne_B.png" type="Texture" id=30]
+[ext_resource path="res://graphics/controls/Arrow_Left_Key_Dark.png" type="Texture" id=31]
+[ext_resource path="res://graphics/controls/F11_Key_Dark.png" type="Texture" id=32]
+[ext_resource path="res://code/actors/Player.tscn" type="PackedScene" id=33]
+[ext_resource path="res://graphics/controls/F10_Key_Dark.png" type="Texture" id=34]
+[ext_resource path="res://code/levels/Blocks.tres" type="TileSet" id=35]
+[ext_resource path="res://code/actors/Enemy.tscn" type="PackedScene" id=36]
+[ext_resource path="res://graphics/controls/Esc_Key_Dark.png" type="Texture" id=37]
+[ext_resource path="res://graphics/controls/Arrow_Right_Key_Dark.png" type="Texture" id=38]
+[ext_resource path="res://graphics/controls/XboxOne_Dpad_Left.png" type="Texture" id=39]
+[ext_resource path="res://graphics/controls/XboxOne_A.png" type="Texture" id=40]
+[ext_resource path="res://graphics/controls/XboxOne_Y.png" type="Texture" id=41]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 26 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 96
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 26 )
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -1237.0
+margin_top = -2000.0
+margin_right = 1237.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 4 )]
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -96.0
+margin_right = 192.0
+margin_bottom = 96.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="StartGame" type="Button" parent="Menu"]
+margin_right = 384.0
+margin_bottom = 94.0
+size_flags_vertical = 3
+text = "Play"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 1 )]
+margin_right = 384.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.0
+autoplay = true
+
+[node name="Blocks" type="TileMap" parent="."]
+tile_set = ExtResource( 35 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 851969, 53, 0, 851970, 54, 0, 851971, 55, 0, 851974, 3, 0, 851975, 2, 0, 851976, 21, 0, 851979, 1, 0, 851980, 0, 0, 851992, 14, 0, 851993, 15, 0, 851994, 16, 0, 851995, 14, 0, 851996, 15, 0 )
+
+[node name="Scenery" type="TileMap" parent="."]
+tile_set = ExtResource( 8 )
+format = 1
+tile_data = PoolIntArray( 655371, 0, 0, 786435, 47, 0, 786438, 10, 0, 786456, 49, 0, 851980, 41, 0, 917510, 1610612780, 0, 983046, 1610612782, 0 )
+
+[node name="ControlsWASD" type="Control" parent="."]
+visible = false
+margin_left = 64.0
+margin_top = 384.0
+margin_right = 448.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W_Key_Dark" type="Sprite" parent="ControlsWASD"]
+position = Vector2( 192, 64 )
+texture = ExtResource( 22 )
+
+[node name="A_Key_Dark" type="Sprite" parent="ControlsWASD"]
+position = Vector2( 64, 192 )
+texture = ExtResource( 23 )
+
+[node name="S_Key_Dark" type="Sprite" parent="ControlsWASD"]
+position = Vector2( 192, 192 )
+texture = ExtResource( 2 )
+
+[node name="D_Key_Dark" type="Sprite" parent="ControlsWASD"]
+position = Vector2( 320, 192 )
+texture = ExtResource( 25 )
+
+[node name="Space_Key_Dark" type="Sprite" parent="ControlsWASD"]
+position = Vector2( 192, 320 )
+texture = ExtResource( 24 )
+
+[node name="Jump" type="Label" parent="ControlsWASD"]
+margin_left = 172.0
+margin_top = 105.0
+margin_right = 212.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Jump"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Label" parent="ControlsWASD"]
+margin_left = 44.0
+margin_top = 236.0
+margin_right = 84.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Left"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Label" parent="ControlsWASD"]
+margin_left = 301.0
+margin_top = 236.0
+margin_right = 341.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Right"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chute" type="Label" parent="ControlsWASD"]
+margin_left = 154.0
+margin_top = 236.0
+margin_right = 230.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Parachute"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kick" type="Label" parent="ControlsWASD"]
+margin_left = 149.0
+margin_top = 361.0
+margin_right = 235.0
+margin_bottom = 381.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Flying Kick"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlsCursor" type="Control" parent="."]
+visible = false
+margin_left = 64.0
+margin_top = 384.0
+margin_right = 448.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow_Up_Key_Dark" type="Sprite" parent="ControlsCursor"]
+position = Vector2( 192, 64 )
+texture = ExtResource( 29 )
+
+[node name="Arrow_Left_Key_Dark" type="Sprite" parent="ControlsCursor"]
+position = Vector2( 64, 192 )
+texture = ExtResource( 31 )
+
+[node name="Arrow_Down_Key_Dark" type="Sprite" parent="ControlsCursor"]
+position = Vector2( 192, 192 )
+texture = ExtResource( 28 )
+
+[node name="Arrow_Right_Key_Dark" type="Sprite" parent="ControlsCursor"]
+position = Vector2( 320, 192 )
+texture = ExtResource( 38 )
+
+[node name="Space_Key_Dark" type="Sprite" parent="ControlsCursor"]
+position = Vector2( 192, 320 )
+texture = ExtResource( 24 )
+
+[node name="Jump" type="Label" parent="ControlsCursor"]
+margin_left = 172.0
+margin_top = 105.0
+margin_right = 212.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Jump"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Label" parent="ControlsCursor"]
+margin_left = 44.0
+margin_top = 236.0
+margin_right = 84.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Left"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Label" parent="ControlsCursor"]
+margin_left = 301.0
+margin_top = 236.0
+margin_right = 341.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Right"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chute" type="Label" parent="ControlsCursor"]
+margin_left = 154.0
+margin_top = 236.0
+margin_right = 230.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Parachute"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kick" type="Label" parent="ControlsCursor"]
+margin_left = 149.0
+margin_top = 361.0
+margin_right = 235.0
+margin_bottom = 381.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Flying Kick"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlsXbox" type="Control" parent="."]
+margin_left = 64.0
+margin_top = 384.0
+margin_right = 480.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XboxOne_A" type="Sprite" parent="ControlsXbox"]
+position = Vector2( 192, 64 )
+texture = ExtResource( 40 )
+
+[node name="XboxOne_Dpad_Left" type="Sprite" parent="ControlsXbox"]
+position = Vector2( 64, 192 )
+texture = ExtResource( 39 )
+
+[node name="XboxOne_Y" type="Sprite" parent="ControlsXbox"]
+position = Vector2( 192, 192 )
+texture = ExtResource( 41 )
+
+[node name="XboxOne_Dpad_Right" type="Sprite" parent="ControlsXbox"]
+position = Vector2( 320, 192 )
+texture = ExtResource( 27 )
+
+[node name="XboxOne_B" type="Sprite" parent="ControlsXbox"]
+position = Vector2( 192, 320 )
+texture = ExtResource( 30 )
+
+[node name="Jump" type="Label" parent="ControlsXbox"]
+margin_left = 172.0
+margin_top = 105.0
+margin_right = 212.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Jump"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Label" parent="ControlsXbox"]
+margin_left = 44.0
+margin_top = 236.0
+margin_right = 84.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Left"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Label" parent="ControlsXbox"]
+margin_left = 301.0
+margin_top = 236.0
+margin_right = 341.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Right"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chute" type="Label" parent="ControlsXbox"]
+margin_left = 154.0
+margin_top = 236.0
+margin_right = 230.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Parachute"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kick" type="Label" parent="ControlsXbox"]
+margin_left = 149.0
+margin_top = 361.0
+margin_right = 235.0
+margin_bottom = 381.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Flying Kick"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Control" parent="."]
+margin_left = 1472.0
+margin_top = 384.0
+margin_right = 1856.0
+margin_bottom = 704.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Esc_Key_Dark" type="Sprite" parent="Options"]
+position = Vector2( 192, 64 )
+texture = ExtResource( 37 )
+
+[node name="F10_Key_Dark" type="Sprite" parent="Options"]
+position = Vector2( 64, 192 )
+texture = ExtResource( 34 )
+
+[node name="F11_Key_Dark" type="Sprite" parent="Options"]
+position = Vector2( 320, 192 )
+texture = ExtResource( 32 )
+
+[node name="Pause" type="Label" parent="Options"]
+margin_left = 172.0
+margin_top = 108.0
+margin_right = 212.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Pause"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowSize" type="Label" parent="Options"]
+margin_left = 18.0
+margin_top = 236.0
+margin_right = 110.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Window Size"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullScreen" type="Label" parent="Options"]
+margin_left = 275.0
+margin_top = 236.0
+margin_right = 365.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Full Screen"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="You" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 887.0
+margin_right = 272.0
+margin_bottom = 1072.0
+custom_fonts/font = SubResource( 2 )
+text = "You"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Them" type="Label" parent="."]
+margin_left = 418.0
+margin_top = 887.0
+margin_right = 799.0
+margin_bottom = 1072.0
+custom_fonts/font = SubResource( 2 )
+text = "Them"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Collect" type="Label" parent="."]
+margin_left = 944.0
+margin_top = 887.0
+margin_right = 1354.0
+margin_bottom = 1072.0
+custom_fonts/font = SubResource( 2 )
+text = "Collect"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Escape" type="Label" parent="."]
+margin_left = 1491.0
+margin_top = 887.0
+margin_right = 1901.0
+margin_bottom = 1072.0
+custom_fonts/font = SubResource( 2 )
+text = "Escape"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Version" type="Label" parent="."]
+margin_left = 1858.0
+margin_top = 1051.0
+margin_right = 1910.0
+margin_bottom = 1071.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "v0.0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Guard" parent="." instance=ExtResource( 36 )]
+position = Vector2( 480, 192 )
+rank = "guard"
+start_with_airdrop = true
+
+[node name="Actor" parent="Guard" index="0"]
+frame = 0
+
+[node name="Caption" parent="Guard/Actor" index="1"]
+text = "Stomp x1"
+
+[node name="Soldier" parent="." instance=ExtResource( 36 )]
+position = Vector2( 704, 64 )
+start_with_airdrop = true
+initial_direction = 1
+
+[node name="Actor" parent="Soldier" index="0"]
+frame = 0
+
+[node name="Caption" parent="Soldier/Actor" index="1"]
+text = "Stomp x2"
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Blueprints" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 960, 864 )
+
+[node name="Crate" parent="Items" instance=ExtResource( 18 )]
+position = Vector2( 1056, 864 )
+
+[node name="Computer" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 1152, 864 )
+
+[node name="Plutonium" parent="Items" instance=ExtResource( 15 )]
+position = Vector2( 1248, 864 )
+
+[node name="Disk" parent="Items" instance=ExtResource( 17 )]
+position = Vector2( 1338, 864 )
+
+[node name="Satellite" parent="Items" instance=ExtResource( 16 )]
+position = Vector2( 960, 800 )
+
+[node name="Tech" parent="Items" instance=ExtResource( 12 )]
+position = Vector2( 1152, 800 )
+
+[node name="EnergyCell" parent="Items" instance=ExtResource( 11 )]
+position = Vector2( 1248, 800 )
+
+[node name="Warhead" parent="Items" instance=ExtResource( 13 )]
+position = Vector2( 1338, 800 )
+
+[node name="LaunchButton" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 1056, 800 )
+
+[node name="Player" parent="." instance=ExtResource( 33 )]
+position = Vector2( 160, 128 )
+input_disabled = true
+
+[node name="CameraLerp" parent="Player" index="0"]
+limit_left = 0
+limit_top = -920
+limit_bottom = 1080
+TargetPath = NodePath("..")
+
+[node name="Portal" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1632, 784 )
+next_scene = ExtResource( 21 )
+
+[node name="InstructionsTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="button_up" from="Menu/StartGame" to="." method="_on_StartGame_button_up"]
+[connection signal="timeout" from="InstructionsTimer" to="." method="_on_InstructionsTimer_timeout"]
+
+[editable path="Guard"]
+[editable path="Guard/Actor"]
+[editable path="Soldier"]
+[editable path="Soldier/Actor"]
+[editable path="Player"]
+[editable path="Player/Actor"]

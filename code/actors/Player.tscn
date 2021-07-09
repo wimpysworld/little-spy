@@ -1,0 +1,148 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://code/actors/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/kick.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sounds/kick_landed.ogg" type="AudioStream" id=3]
+[ext_resource path="res://code/ui/ScreenShake.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/actors/CameraLerp.gd" type="Script" id=5]
+[ext_resource path="res://sounds/die.ogg" type="AudioStream" id=6]
+[ext_resource path="res://sounds/no-chute.ogg" type="AudioStream" id=7]
+[ext_resource path="res://code/actors/Player.gd" type="Script" id=21]
+[ext_resource path="res://sounds/damage.ogg" type="AudioStream" id=24]
+[ext_resource path="res://sounds/jump.ogg" type="AudioStream" id=26]
+[ext_resource path="res://sounds/stomped.ogg" type="AudioStream" id=28]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 20.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 24 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16.4776, 7 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8.48803, 13.8871 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 24
+script = ExtResource( 21 )
+rank = "spy"
+start_with_airdrop = true
+
+[node name="CameraLerp" type="Camera2D" parent="."]
+position = Vector2( 1, -2 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.3
+drag_margin_top = 0.4
+drag_margin_right = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 5 )
+TargetPath = NodePath("../Actor")
+
+[node name="ScreenShake" parent="CameraLerp" instance=ExtResource( 4 )]
+
+[node name="Actor" parent="." instance=ExtResource( 1 )]
+animation = "spy_idle"
+frame = 2
+playing = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+modulate = Color( 0.0666667, 0.25098, 0.117647, 1 )
+position = Vector2( 0, -4 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StompDetector" type="Area2D" parent="." groups=[
+"stomp",
+]]
+collision_mask = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
+position = Vector2( 0, 27 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AttackLeft" type="Area2D" parent="." groups=[
+"attack",
+]]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackLeft"]
+position = Vector2( 33, -4 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AttackRight" type="Area2D" parent="." groups=[
+"attack",
+]]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRight"]
+position = Vector2( -33, -4 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Damage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -8.0
+
+[node name="Kick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="KickLanded" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="NoChute" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Stomp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+
+[node name="EchoTimer" type="Timer" parent="."]
+wait_time = 0.02
+autostart = true
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="area_entered" from="StompDetector" to="." method="_on_StompDetector_area_entered"]
+[connection signal="area_entered" from="AttackLeft" to="." method="_on_AttackLeft_area_entered"]
+[connection signal="area_entered" from="AttackRight" to="." method="_on_AttackRight_area_entered"]
+[connection signal="timeout" from="EchoTimer" to="." method="_on_EchoTimer_timeout"]
+
+[editable path="Actor"]

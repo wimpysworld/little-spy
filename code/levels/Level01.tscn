@@ -1,0 +1,184 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://code/levels/Scenery.tres" type="TileSet" id=1]
+[ext_resource path="res://code/objects/ItemBlueprints.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphics/background01.png" type="Texture" id=3]
+[ext_resource path="res://code/objects/ItemWarhead.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/objects/ItemComputer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://code/objects/ItemLaunchButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://code/ui/UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://code/objects/ItemPlutonium.tscn" type="PackedScene" id=8]
+[ext_resource path="res://code/objects/ItemSatellite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://code/objects/ItemDisk.tscn" type="PackedScene" id=10]
+[ext_resource path="res://code/objects/ItemCrate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://code/objects/Portal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://code/objects/ItemEnergyCell.tscn" type="PackedScene" id=13]
+[ext_resource path="res://code/objects/ItemTech.tscn" type="PackedScene" id=14]
+[ext_resource path="res://code/actors/Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://code/levels/Blocks.tres" type="TileSet" id=16]
+[ext_resource path="res://code/actors/Enemy.tscn" type="PackedScene" id=17]
+[ext_resource path="res://music/level01.ogg" type="AudioStream" id=18]
+[ext_resource path="res://code/objects/PowerUpHeart.tscn" type="PackedScene" id=19]
+[ext_resource path="res://code/objects/PowerUpParachute.tscn" type="PackedScene" id=20]
+[ext_resource path="res://code/levels/Level.gd" type="Script" id=21]
+[ext_resource path="res://code/levels/Danger.tres" type="TileSet" id=22]
+[ext_resource path="res://code/levels/Level02.tscn" type="PackedScene" id=23]
+
+[node name="Level01" type="Node2D"]
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_vertical_guides_": [ 1922.03 ]
+}
+level_name = "Just Jumping"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.0
+autoplay = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="UI" parent="UILayer" instance=ExtResource( 7 )]
+time_limit = 55.0
+
+[node name="PauseOverlay" parent="UILayer/UI" index="0"]
+visible = false
+
+[node name="Status" parent="UILayer/UI" index="5"]
+visible = false
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -10
+follow_viewport_enable = true
+
+[node name="bg_left" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1920.0
+margin_right = 554.0
+margin_bottom = -1000.0
+rect_scale = Vector2( 1.55, 1.5 )
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="bg_right" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3760.0
+margin_top = -1920.0
+margin_right = 4314.0
+margin_bottom = -1000.0
+rect_scale = Vector2( 1.55, 1.5 )
+texture = ExtResource( 3 )
+flip_h = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Blocks" type="TileMap" parent="."]
+tile_set = ExtResource( 16 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 57, 0, 1, 54, 0, 2, 54, 0, 3, 54, 0, 4, 55, 0, 24, 53, 0, 25, 54, 0, 26, 54, 0, 27, 54, 0, 28, 54, 0, 29, 57, 0, 65536, 61, 0, 65565, 59, 0, 131072, 61, 0, 131101, 59, 0, 196608, 61, 0, 196623, 53, 0, 196624, 54, 0, 196625, 55, 0, 196637, 59, 0, 262144, 61, 0, 262156, 52, 0, 262173, 59, 0, 327680, 61, 0, 327709, 59, 0, 393216, 61, 0, 393225, 52, 0, 393245, 59, 0, 458752, 61, 0, 458764, 52, 0, 458781, 59, 0, 524288, 61, 0, 524303, 52, 0, 524317, 59, 0, 589824, 61, 0, 589853, 59, 0, 655360, 61, 0, 655378, 52, 0, 655379, 536870933, 0, 655382, 536870978, 0, 655383, 536870933, 0, 655386, 536870964, 0, 655389, 59, 0, 720896, 61, 0, 720911, 52, 0, 720925, 59, 0, 786432, 61, 0, 786444, 52, 0, 786461, 59, 0, 851968, 61, 0, 851977, 52, 0, 851997, 59, 0, 917504, 61, 0, 917510, 52, 0, 917533, 59, 0, 983040, 61, 0, 983069, 59, 0, 1048576, 57, 0, 1048577, 57, 0, 1048578, 536870969, 0, 1048579, 536870969, 0, 1048580, 536870969, 0, 1048581, 536870969, 0, 1048582, 536870968, 0, 1048583, 49, 0, 1048584, 50, 0, 1048585, 50, 0, 1048586, 0, 0, 1048587, 50, 0, 1048588, 49, 0, 1048589, 0, 0, 1048590, 2, 0, 1048591, 50, 0, 1048592, 3, 0, 1048593, 49, 0, 1048594, 2, 0, 1048595, 0, 0, 1048596, 3, 0, 1048597, 50, 0, 1048598, 2, 0, 1048599, 3, 0, 1048600, 49, 0, 1048601, 0, 0, 1048602, 2, 0, 1048603, 56, 0, 1048604, 57, 0, 1048605, 57, 0 )
+
+[node name="Danger" type="TileMap" parent="." groups=[
+"danger",
+]]
+tile_set = ExtResource( 22 )
+collision_layer = 16
+collision_mask = 0
+format = 1
+
+[node name="Scenery" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -262118, 5, 0, -196606, 0, 0, -65536, 48, 0, -65532, 9, 0, -65511, 7, 0, -65509, 38, 0, -65507, 47, 0, 65538, 1610612780, 0, 65540, 1610612780, 0, 65561, 1610612783, 0, 65562, 1610612780, 0, 65564, 1610612780, 0, 131074, 1610612781, 0, 131076, 1610612781, 0, 131098, 1610612781, 0, 131100, 1610612781, 0, 196610, 1610612781, 0, 196612, 1610612781, 0, 196634, 1610612782, 0, 196636, 1610612781, 0, 262146, 1610612781, 0, 262148, 1610612782, 0, 262160, 1610612782, 0, 262161, 1610612780, 0, 262172, 1610612781, 0, 327682, 1610612781, 0, 327697, 1610612782, 0, 327708, 1610612782, 0, 393218, 1610612782, 0, 655386, 5, 0, 720919, 536870917, 0, 786457, 536870917, 0, 851970, 0, 0, 851995, 38, 0, 917528, 536870950, 0, 917531, 37, 0, 983041, 536870959, 0, 983045, 9, 0, 983052, 536870932, 0, 983055, 8, 0, 983056, 7, 0, 983057, 9, 0, 983063, 21, 0, 983064, 536870951, 0, 983066, 536870949, 0, 983067, 39, 0, 983068, 10, 0 )
+
+[node name="Portal" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1024, 144 )
+next_scene = ExtResource( 23 )
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Blueprints" parent="Items" instance=ExtResource( 2 )]
+position = Vector2( 416, 864 )
+
+[node name="Blueprints2" parent="Items" instance=ExtResource( 2 )]
+position = Vector2( 1696, 608 )
+
+[node name="Computer" parent="Items" instance=ExtResource( 5 )]
+position = Vector2( 608, 800 )
+
+[node name="Crate" parent="Items" instance=ExtResource( 11 )]
+position = Vector2( 805, 736 )
+
+[node name="Disk" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 992, 672 )
+
+[node name="EnergyCell" parent="Items" instance=ExtResource( 13 )]
+position = Vector2( 1184, 608 )
+
+[node name="LaunchButton" parent="Items" instance=ExtResource( 6 )]
+position = Vector2( 992, 480 )
+
+[node name="Plutonium" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 800, 416 )
+
+[node name="Satellite" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 608, 352 )
+
+[node name="Tech" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 800, 224 )
+
+[node name="Tech2" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 1440, 608 )
+
+[node name="Warhead" parent="Items" instance=ExtResource( 4 )]
+position = Vector2( 1184, 976 )
+
+[node name="PowerUps" type="Node" parent="."]
+
+[node name="PowerUpHeart" parent="PowerUps" instance=ExtResource( 19 )]
+visible = false
+position = Vector2( 128, -160 )
+
+[node name="PowerUpParachute" parent="PowerUps" instance=ExtResource( 20 )]
+visible = false
+position = Vector2( 224, -160 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Soldier" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 1696, 320 )
+detect_voids = false
+
+[node name="Guard" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 800, 33 )
+rank = "guard"
+start_with_airdrop = true
+detect_voids = false
+initial_direction = 1
+
+[node name="Player" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1376, 52 )
+
+[node name="CameraLerp" parent="Player" index="0"]
+limit_left = 0
+limit_top = -920
+limit_right = 1920
+limit_bottom = 1080
+TargetPath = NodePath("..")
+
+[editable path="UILayer/UI"]
+[editable path="Player"]
+[editable path="Player/Actor"]

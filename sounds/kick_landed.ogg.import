@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kick_landed.ogg-92bc28d3adb6325f1f3c09beaf985fc4.oggstr"
+
+[deps]
+
+source_file="res://sounds/kick_landed.ogg"
+dest_files=[ "res://.import/kick_landed.ogg-92bc28d3adb6325f1f3c09beaf985fc4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

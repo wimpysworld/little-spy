@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://code/actors/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://code/actors/Actor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sounds/hit.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sounds/squish.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sounds/teleport.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sounds/ding.ogg" type="AudioStream" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 29.0
+height = 0.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 27 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6, 31 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6, 31 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 25
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Actor" parent="." instance=ExtResource( 2 )]
+rotation = 0.0
+animation = "guard_idle"
+frame = 1
+playing = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StompArea2D" type="Area2D" parent="." groups=[
+"top_impact",
+]]
+modulate = Color( 0.313726, 0.0823529, 0.878431, 1 )
+collision_layer = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
+position = Vector2( 0, -28 )
+rotation = 1.5708
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ImpactLeft" type="Area2D" parent="." groups=[
+"side_impact",
+]]
+modulate = Color( 0.313726, 0.0823529, 0.878431, 1 )
+collision_layer = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactLeft"]
+modulate = Color( 0.876562, 0.0827637, 0.882812, 1 )
+position = Vector2( -33, 1 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ImpactRight" type="Area2D" parent="." groups=[
+"side_impact",
+]]
+modulate = Color( 0.313726, 0.0823529, 0.878431, 1 )
+collision_layer = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactRight"]
+position = Vector2( 33, 1 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Squish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Ding" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Teleport" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -16.0
+
+[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]
+[connection signal="area_entered" from="ImpactLeft" to="." method="_on_ImpactLeft_area_entered"]
+[connection signal="area_entered" from="ImpactRight" to="." method="_on_ImpactRight_area_entered"]
+
+[editable path="Actor"]

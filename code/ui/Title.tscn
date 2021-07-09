@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/greatlakes-nf.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://code/ui/Title.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 376
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "drop_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.0769468, 4 ),
+"update": 0,
+"values": [ Vector2( 194, -900 ), Vector2( 194, -32 ) ]
+}
+
+[node name="Title" type="HBoxContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -766.0
+margin_top = -1440.0
+margin_right = 766.0
+margin_bottom = -902.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LittleSpy" type="Label" parent="."]
+margin_right = 1532.0
+margin_bottom = 538.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Little Spy"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleAnimation" type="AnimationPlayer" parent="."]
+anims/drop_in = SubResource( 2 )

@@ -1,0 +1,221 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://music/game-over.ogg" type="AudioStream" id=1]
+[ext_resource path="res://code/ui/ui_theme.tres" type="Theme" id=2]
+[ext_resource path="res://code/ui/SceneChange.tscn" type="PackedScene" id=3]
+[ext_resource path="res://code/ui/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/ui/UI.gd" type="Script" id=5]
+[ext_resource path="res://graphics/heart.png" type="Texture" id=6]
+[ext_resource path="res://graphics/bag.png" type="Texture" id=7]
+[ext_resource path="res://graphics/spy_parachute_0.png" type="Texture" id=8]
+[ext_resource path="res://graphics/lift-off.png" type="Texture" id=9]
+[ext_resource path="res://sounds/beep_reminder.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sounds/beep_urgent.ogg" type="AudioStream" id=11]
+[ext_resource path="res://graphics/medal-bronze.png" type="Texture" id=12]
+[ext_resource path="res://graphics/medal-silver.png" type="Texture" id=13]
+[ext_resource path="res://graphics/medal-gold.png" type="Texture" id=14]
+[ext_resource path="res://graphics/medal-border.png" type="Texture" id=15]
+
+[node name="UI" type="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+color = Color( 0, 0, 0, 0.376471 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 4 )]
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = -248.0
+margin_right = 192.0
+margin_bottom = -56.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="PauseOverlay/PauseMenu"]
+margin_right = 384.0
+margin_bottom = 94.0
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "Resume"
+
+[node name="MainMenu" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
+margin_top = 98.0
+margin_right = 384.0
+margin_bottom = 192.0
+text = "Main Menu"
+next_scene_path = "res://code/MainScreen.tscn"
+
+[node name="MedalBorder" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 448 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GoldMedal" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 448 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SilverMedal" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 448 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BronzeMedal" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 448 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Status" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -25.0
+margin_bottom = 25.0
+theme = ExtResource( 2 )
+text = "PAUSED"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Heart" type="Sprite" parent="."]
+position = Vector2( 64, 48 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Health" type="Label" parent="."]
+margin_left = 112.0
+margin_top = 4.0
+margin_right = 261.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+text = "x %s"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Parachute" type="Sprite" parent="."]
+position = Vector2( 320, 48 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chutes" type="Label" parent="."]
+margin_left = 368.0
+margin_top = 4.0
+margin_right = 477.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+text = "x %s"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 805.0
+margin_top = 4.0
+margin_right = 1115.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+text = "Score: %s"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Bag" type="Sprite" parent="."]
+position = Vector2( 1496, 48 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Items" type="Label" parent="."]
+margin_left = 1544.0
+margin_top = 4.0
+margin_right = 1693.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+text = "x %s"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LiftOff" type="Sprite" parent="."]
+position = Vector2( 1760, 48 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Label" parent="."]
+margin_left = 1808.0
+margin_top = 4.0
+margin_right = 1898.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+text = "300"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.0
+
+[node name="Reminder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Urgent" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[connection signal="button_up" from="PauseOverlay/PauseMenu/Resume" to="." method="_on_Resume_button_up"]

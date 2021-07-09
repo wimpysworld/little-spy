@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://code/ui/QuitButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://code/ui/ui_theme.tres" type="Theme" id=2]
+[ext_resource path="res://code/ui/SceneChange.tscn" type="PackedScene" id=3]
+[ext_resource path="res://code/ui/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://graphics/background01.png" type="Texture" id=5]
+[ext_resource path="res://music/mission-accomplished.ogg" type="AudioStream" id=6]
+[ext_resource path="res://code/levels/Blocks.tres" type="TileSet" id=7]
+[ext_resource path="res://code/ui/EndScreen.gd" type="Script" id=8]
+[ext_resource path="res://code/levels/Scenery.tres" type="TileSet" id=9]
+[ext_resource path="res://graphics/spy_cheers_0.png" type="Texture" id=10]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MissionAccomplished" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -1237.0
+margin_top = -2000.0
+margin_right = 1237.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 4 )]
+
+[node name="Results" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -73.0
+margin_bottom = 93.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="Results"]
+margin_right = 1920.0
+margin_bottom = 81.0
+theme = ExtResource( 2 )
+text = "Mission accomplished!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="Results"]
+margin_top = 85.0
+margin_right = 1920.0
+margin_bottom = 166.0
+theme = ExtResource( 2 )
+text = "Final Score: %s"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blocks" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+collision_layer = 8
+format = 1
+tile_data = PoolIntArray( 131072, 71, 0, 131073, 72, 0, 131074, 73, 0, 131075, 71, 0, 131076, 71, 0, 131077, 76, 0, 131096, 67, 0, 131097, 68, 0, 131098, 71, 0, 131099, 71, 0, 131100, 74, 0, 131101, 75, 0, 786427, 56, 0, 786428, 57, 0, 786429, 57, 0, 786430, 57, 0, 786431, 57, 0, 720896, 57, 0, 720897, 57, 0, 720898, 57, 0, 720899, 57, 0, 720900, 57, 0, 720901, 57, 0, 720902, 57, 0, 720903, 58, 0, 720904, 66, 0, 720905, 6, 0, 720906, 7, 0, 720907, 22, 0, 720910, 7, 0, 720911, 5, 0, 720912, 6, 0, 720913, 22, 0, 720916, 6, 0, 720917, 7, 0, 720918, 66, 0, 720919, 56, 0, 720920, 57, 0, 720921, 57, 0, 720922, 57, 0, 720923, 57, 0, 720924, 57, 0, 720925, 57, 0, 720926, 57, 0, 720927, 57, 0, 720928, 57, 0, 720929, 58, 0, 851963, 62, 0, 851964, 63, 0, 851965, 63, 0, 851966, 63, 0, 851967, 63, 0, 786432, 60, 0, 786433, 60, 0, 786434, 63, 0, 786435, 63, 0, 786436, 63, 0, 786437, 63, 0, 786438, 63, 0, 786439, 64, 0, 786455, 62, 0, 786456, 63, 0, 786457, 63, 0, 786458, 63, 0, 786459, 63, 0, 786460, 60, 0, 786461, 60, 0, 786462, 63, 0, 786463, 63, 0, 786464, 63, 0, 786465, 64, 0, 851968, 63, 0, 851969, 64, 0, 851996, 62, 0, 851997, 63, 0, 917513, 14, 0, 917514, 15, 0, 917524, 14, 0, 917525, 14, 0, 983049, 14, 0, 983050, 14, 0, 983060, 16, 0, 983061, 14, 0, 1048585, 15, 0, 1048586, 14, 0, 1048596, 14, 0, 1048597, 16, 0, 1179643, 14, 0, 1179644, 16, 0, 1179645, 14, 0, 1179646, 15, 0, 1179647, 14, 0, 1114112, 14, 0, 1114113, 15, 0, 1114114, 16, 0, 1114115, 14, 0, 1114116, 14, 0, 1114117, 14, 0, 1114118, 15, 0, 1114119, 16, 0, 1114120, 14, 0, 1114121, 14, 0, 1114122, 14, 0, 1114123, 16, 0, 1114124, 14, 0, 1114125, 16, 0, 1114126, 14, 0, 1114127, 15, 0, 1114128, 16, 0, 1114129, 14, 0, 1114130, 14, 0, 1114131, 15, 0, 1114132, 14, 0, 1114133, 15, 0, 1114134, 14, 0, 1114135, 14, 0, 1114136, 14, 0, 1114137, 16, 0, 1114138, 14, 0, 1114139, 16, 0, 1114140, 14, 0, 1114141, 16, 0, 1114142, 15, 0, 1114143, 14, 0, 1114144, 15, 0, 1114145, 14, 0 )
+
+[node name="Scenery" type="TileMap" parent="."]
+tile_set = ExtResource( 9 )
+format = 1
+tile_data = PoolIntArray( 65537, 14, 0, 65541, 43, 0, 65561, 35, 0, 65564, 47, 0, 131075, 40, 0, 131098, 40, 0, 196608, 1610612780, 0, 196609, 1610612782, 0, 196635, 1610612782, 0, 196637, 1610612780, 0, 262144, 1610612781, 0, 262173, 1610612781, 0, 327680, 1610612781, 0, 327706, 5, 0, 327709, 1610612782, 0, 393216, 1610612782, 0, 524289, 0, 0, 524294, 2, 0, 524313, 1, 0, 524315, 38, 0, 589851, 37, 0, 655362, 11, 0, 655364, 23, 0, 655367, 7, 0, 655384, 10, 0, 655387, 39, 0, 655389, 18, 0, 786440, 56, 0, 786446, 37, 0, 786448, 37, 0, 786454, 55, 0, 851982, 37, 0, 851984, 37, 0, 851988, 49, 0, 917518, 37, 0, 917520, 37, 0, 1048571, 27, 0, 1048572, 27, 0, 1048573, 27, 0, 1048574, 27, 0, 1048575, 27, 0, 983040, 27, 0, 983041, 27, 0, 983042, 27, 0, 983043, 27, 0, 983044, 27, 0, 983045, 27, 0, 983046, 27, 0, 983047, 27, 0, 983048, 27, 0, 983054, 37, 0, 983056, 37, 0, 983062, 27, 0, 983063, 27, 0, 983064, 27, 0, 983065, 27, 0, 983066, 27, 0, 983067, 27, 0, 983068, 27, 0, 983069, 27, 0, 983070, 27, 0, 983071, 27, 0, 983072, 27, 0, 983073, 27, 0, 1114107, 28, 0, 1114108, 28, 0, 1114109, 28, 0, 1114110, 28, 0, 1114111, 28, 0, 1048576, 28, 0, 1048577, 28, 0, 1048578, 28, 0, 1048579, 28, 0, 1048580, 28, 0, 1048581, 28, 0, 1048582, 28, 0, 1048583, 28, 0, 1048584, 28, 0, 1048590, 37, 0, 1048592, 37, 0, 1048598, 28, 0, 1048599, 28, 0, 1048600, 28, 0, 1048601, 28, 0, 1048602, 28, 0, 1048603, 28, 0, 1048604, 28, 0, 1048605, 28, 0, 1048606, 28, 0, 1048607, 28, 0, 1048608, 28, 0, 1048609, 28, 0 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -164.0
+margin_top = -246.0
+margin_right = 220.0
+margin_bottom = -54.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 3 )]
+margin_right = 384.0
+text = "Main Menu"
+next_scene_path = "res://code/MainScreen.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 1 )]
+margin_right = 384.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 984, 672 )
+texture = ExtResource( 10 )

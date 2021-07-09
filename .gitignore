@@ -1,0 +1,16 @@
+# This folder stores all the files it imports automatically based on your source assets and their import flags.
+.import
+# This folder stores automatically-generated Mono files.
+.mono
+# This file contains all the export presets for the project, including sensitive information such as Android keystore credentials.
+export_presets.cfg
+
+# Godot build artefacts
+*.apk
+*.app
+*.dmg
+*.exe
+*.pck
+*.translation
+*.x86_64
+*.zip

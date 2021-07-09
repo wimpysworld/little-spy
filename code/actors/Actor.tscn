@@ -1,0 +1,758 @@
+[gd_scene load_steps=92 format=2]
+
+[ext_resource path="res://graphics/spy_idle_1.png" type="Texture" id=1]
+[ext_resource path="res://graphics/soldier-parachute.png" type="Texture" id=2]
+[ext_resource path="res://graphics/spy_run_4.png" type="Texture" id=3]
+[ext_resource path="res://graphics/spy_run_5.png" type="Texture" id=4]
+[ext_resource path="res://graphics/spy_run_2.png" type="Texture" id=5]
+[ext_resource path="res://graphics/spy_idle_0.png" type="Texture" id=6]
+[ext_resource path="res://graphics/spy_jump_1.png" type="Texture" id=7]
+[ext_resource path="res://graphics/spy_jump_0.png" type="Texture" id=8]
+[ext_resource path="res://graphics/spy_run_3.png" type="Texture" id=9]
+[ext_resource path="res://graphics/spy_run_0.png" type="Texture" id=10]
+[ext_resource path="res://graphics/spy_run_1.png" type="Texture" id=11]
+[ext_resource path="res://graphics/spy_idle_2.png" type="Texture" id=12]
+[ext_resource path="res://graphics/spy_idle_3.png" type="Texture" id=13]
+[ext_resource path="res://graphics/guard.png" type="Texture" id=14]
+[ext_resource path="res://graphics/spy_parachute_0.png" type="Texture" id=15]
+[ext_resource path="res://graphics/spy_shock_0.png" type="Texture" id=16]
+[ext_resource path="res://graphics/soldier.png" type="Texture" id=17]
+[ext_resource path="res://fonts/i-pixel-u.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://graphics/spy_jump_2.png" type="Texture" id=19]
+[ext_resource path="res://graphics/smoke_and_fire.png" type="Texture" id=20]
+[ext_resource path="res://sounds/land.ogg" type="AudioStream" id=21]
+[ext_resource path="res://graphics/spy_jump_3.png" type="Texture" id=22]
+[ext_resource path="res://graphics/soldier-armed.png" type="Texture" id=23]
+[ext_resource path="res://graphics/spawn.png" type="Texture" id=24]
+[ext_resource path="res://graphics/blank.png" type="Texture" id=25]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 14 )
+region = Rect2( 256, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 17 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 14 )
+region = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 23 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 17 )
+region = Rect2( 64, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 320, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 384, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 448, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 14 )
+region = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 14 )
+region = Rect2( 128, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 320, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 384, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 448, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 17 )
+region = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 14 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 17 )
+region = Rect2( 192, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 14 )
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 14 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 14 )
+region = Rect2( 256, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 14 )
+region = Rect2( 320, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 14 )
+region = Rect2( 384, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 14 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 14 )
+region = Rect2( 192, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 14 )
+region = Rect2( 256, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 14 )
+region = Rect2( 192, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 17 )
+region = Rect2( 128, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 17 )
+region = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 17 )
+region = Rect2( 256, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 17 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 17 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 17 )
+region = Rect2( 192, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 17 )
+region = Rect2( 256, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 17 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 17 )
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 17 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 17 )
+region = Rect2( 256, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 17 )
+region = Rect2( 320, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 17 )
+region = Rect2( 384, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 192, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=56]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "spy_run",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "spy_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "spy_shock",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": false,
+"name": "soldier_armed_spawn",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "spy_fall",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": false,
+"name": "guard_kick",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": false,
+"name": "soldier_wall",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "guard_shock",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "soldier_armed_wall",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": false,
+"name": "soldier_jump",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 25 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": false,
+"name": "guard_spawn",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "spy_wall",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": false,
+"name": "guard_fall",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 25 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"loop": false,
+"name": "soldier_spawn",
+"speed": 1.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "spy_spawn",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 29 ) ],
+"loop": true,
+"name": "guard_wall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 30 ) ],
+"loop": false,
+"name": "soldier_land",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"loop": true,
+"name": "guard_run",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "guard_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 41 ) ],
+"loop": false,
+"name": "guard_land",
+"speed": 1.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "soldier_armed_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "spy_land",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 42 ) ],
+"loop": false,
+"name": "soldier_fall",
+"speed": 1.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "soldier_armed_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "spy_jump",
+"speed": 1.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "soldier_armed_shock",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 43 ) ],
+"loop": false,
+"name": "soldier_shock",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 44 ) ],
+"loop": false,
+"name": "soldier_kick",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
+"loop": true,
+"name": "soldier_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ) ],
+"loop": true,
+"name": "soldier_run",
+"speed": 7.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "soldier_armed_kick",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "spy_kick",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 55 ) ],
+"loop": false,
+"name": "guard_jump",
+"speed": 1.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "soldier_armed_run",
+"speed": 7.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "soldier_armed_fall",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "soldier_armed_land",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=57]
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.1, 1.4, 1.7 ),
+"transitions": PoolRealArray( 0.189465, 5.46416, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.1, 1.4, 1.7 ),
+"transitions": PoolRealArray( 6.27667, 1, 5.85634 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.152941, 0.176471, 0.435294, 0.12549 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.4, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 360.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "soldier_spawn" ]
+}
+
+[sub_resource type="DynamicFont" id=58]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 18 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 20 )
+region = Rect2( 48, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 20 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 20 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=63]
+animations = [ {
+"frames": [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 60 ), SubResource( 59 ) ],
+"loop": false,
+"name": "dust",
+"speed": 30.0
+} ]
+
+[sub_resource type="Animation" id=64]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.0796601, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 2.5, 2.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.125, 0.108819 ),
+"update": 1,
+"values": [ 0, 6 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 4.92458, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0.12549 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=65]
+animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": false,
+"name": "spy_parachute",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "soldier_parachute",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "guard_parachute",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "soldier_armed_parachute",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=66]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1.5, 2, 1.5, 2, 1.5 ),
+"update": 0,
+"values": [ 0.0, 6.0, 0.0, -6.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1.2, 1.1, 1.2, 1.1, 1.2 ),
+"update": 0,
+"values": [ Vector2( 0, -55 ), Vector2( 4, -54 ), Vector2( 0, -55 ), Vector2( -4, -54 ), Vector2( 0, -55 ) ]
+}
+
+[node name="Actor" type="AnimatedSprite"]
+rotation = 6.28319
+frames = SubResource( 56 )
+animation = "soldier_spawn"
+frame = 11
+playing = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SpawnAnimation" type="AnimationPlayer" parent="."]
+anims/spawn = SubResource( 57 )
+
+[node name="Caption" type="Label" parent="."]
+visible = false
+margin_left = -51.0
+margin_top = -64.0
+margin_right = 59.0
+margin_bottom = -44.0
+custom_fonts/font = SubResource( 58 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Caption"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Dust" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+show_behind_parent = true
+position = Vector2( 0, 30 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 63 )
+animation = "dust"
+frame = 5
+playing = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="DustAnimation" type="AnimationPlayer" parent="Dust"]
+anims/dust = SubResource( 64 )
+
+[node name="Chute" type="AnimatedSprite" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2( 0, -55 )
+frames = SubResource( 65 )
+animation = "soldier_armed_parachute"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ChuteAnimation" type="AnimationPlayer" parent="Chute"]
+autoplay = "wobble"
+anims/wobble = SubResource( 66 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.0270138, 2 )
+scale = Vector2( 1.9973, 3.01298 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformChecker" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 42 )
+collision_mask = 24
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LeftWallChecker" type="RayCast2D" parent="."]
+position = Vector2( -16, 0 )
+rotation = 1.5708
+cast_to = Vector2( 0, 8 )
+collision_mask = 8
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RightWallChecker" type="RayCast2D" parent="."]
+position = Vector2( 16, 0 )
+rotation = -1.5708
+cast_to = Vector2( 0, 8 )
+collision_mask = 8
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Land" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -20.0
