@@ -52,7 +52,7 @@ to replace their fallen comrades.
 
 ### Controls
 
-Should work with most controllers.
+Little Spy should work with most game controllers.
 
 <div align="center">
 <img src="graphics/controls/XboxOne_Dpad.png" width="32" alt="D-pad">&nbsp;&nbsp;&nbsp;&nbsp;<img src="graphics/controls/XboxOne_Left_Stick.png"  width="32" alt="Left Stick">
