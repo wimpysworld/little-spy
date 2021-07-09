@@ -106,6 +106,9 @@ func move():
 
 
 func chute():
+	if input_disabled:
+		return
+
 	if Input.is_action_just_pressed("chute"):
 		if _chute_deployed:
 			stow_parachute()
