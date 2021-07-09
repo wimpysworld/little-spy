@@ -30,13 +30,14 @@ func _ready():
 		$Soldier.stow_parachute()
 
 
+
 func _process(_delta: float):
 	if $Player.is_on_floor():
 		$Menu.visible = true
 	if $Guard.is_on_floor():
-		$Guard.display_caption("Stomp x1")
+		$Guard.display_caption("Hit x1")
 	if $Soldier.is_on_floor():
-		$Soldier.display_caption("Stomp x2")
+		$Soldier.display_caption("Hit x2")
 
 
 func _input(_event: InputEvent):
