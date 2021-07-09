@@ -121,7 +121,7 @@ func chute():
 
 
 func jump(delta: float):
-	if input_disabled or _in_shock or _kicking:
+	if input_disabled or _in_shock or _kicking or PlayerData.level_complete:
 		return
 
 	# Jump buffering and Coyote time; as described here https://youtu.be/vFsJIrm2btU
