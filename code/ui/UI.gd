@@ -121,6 +121,7 @@ func end_of_level():
 
 	# Calculate agent rank: 000 (worst) to 009 (best)
 	rating = int(stepify(success, 0.001) * 10) - 1
+	rating = max(rating, 0)
 
 	# Calculate percentage complete
 	success = stepify(success, 0.01) * 100
