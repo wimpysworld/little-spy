@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION := "v1.0.0"
+const VERSION := "v1.0.1"
 const STARTING_HEALTH := 3
 const STARTING_CHUTES := 3
 const SCORE_PAD := 6
