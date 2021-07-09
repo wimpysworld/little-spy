@@ -173,11 +173,11 @@ func kick(delta: float):
 		_kicking = false
 		return
 
-	if input_disabled or _in_shock or _kicking:
-		return
-
 	# Jump buffering; as described here https://youtu.be/vFsJIrm2btU
 	_kick_buffer_delta -= delta
+
+	if input_disabled or _in_shock or _kicking :
+		return
 
 	if is_on_floor() or is_on_wall():
 		# Recharge when player touches the floor or a wall
