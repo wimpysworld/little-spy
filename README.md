@@ -24,7 +24,6 @@ to earn a higher bonus.
 <img src="graphics/medal-gold.png" width="16" alt="Gold">&nbsp;<img src="graphics/medal-silver.png" width="16" alt="Silver">&nbsp;<img src="graphics/medal-bronze.png" width="16" alt="Bronze">&nbsp;
 </div>
 
-
 ### Game Mechanics
 
 <img src="graphics/spy_run_1.png" width="16" alt="Spy Run" /> Little Spy can run and jump. **Holding jump extends the jump height**.
@@ -49,6 +48,8 @@ Enemies can be stomped or kicked:
 
 Enemies have teleport technology and new recruits will teleport into the game
 to replace their fallen comrades.
+
+[![Little Spy - gameplay](https://img.youtube.com/vi/MSAkElrsN38/0.jpg)](https://www.youtube.com/watch?v=MSAkElrsN38)
 
 ### Controls
 
@@ -103,7 +104,8 @@ The theme for the jam was ✨Free✨. My interpretation of the theme is to creat
 a game using only tools that are free software, free of cost, or game assets
 that are free or in the public domain.
 
-I will release the game project and code under an MIT license when the jam concludes.
+In keeping with the **Free** theme, I released the game project and code under
+an MIT license.
 
 ### Dev Log
 
