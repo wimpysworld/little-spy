@@ -22,6 +22,25 @@ var clock = null
 var last_second := 0
 
 
+func _on_Player_died():
+	end_of_game("Agent Status: Killed In Action")
+
+
+func _on_time_expired():
+	end_of_game("Agent Status: Missing In Action")
+
+
+func _on_level_complete():
+	# FIXME: This stop the _process() function, which only has check_clock() in it.
+	#        So janky way to stop the timer.
+	set_process(false)
+	end_of_level()
+
+
+func _on_Resume_button_up():
+	set_paused(false)
+
+
 func _on_Retry_button_up() -> void:
 	set_paused(false)
 	PlayerData.retry_level()
@@ -60,25 +79,6 @@ func _ready():
 	$GoldMedal.visible = false
 	$SilverMedal.visible = false
 	$BronzeMedal.visible = false
-
-
-func _on_Player_died():
-	end_of_game("Agent Status: Killed In Action")
-
-
-func _on_time_expired():
-	end_of_game("Agent Status: Missing In Action")
-
-
-func _on_level_complete():
-	# FIXME: This stop the _process() function, which only has check_clock() in it.
-	#        So janky way to stop the timer.
-	set_process(false)
-	end_of_level()
-
-
-func _on_Resume_button_up():
-	set_paused(false)
 
 
 func _process(_delta):
