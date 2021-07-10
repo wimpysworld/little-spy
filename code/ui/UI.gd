@@ -91,6 +91,8 @@ func _unhandled_input(event: InputEvent):
 		# Prevents other input being handled while paused
 		scene_tree.set_input_as_handled()
 	elif paused and event.is_action_pressed("ui_accept"):
+		_on_Retry_button_up()
+	elif paused and event.is_action_pressed("ui_cancel"):
 		get_tree().change_scene("res://code/MainScreen.tscn")
 
 
@@ -116,6 +118,7 @@ func end_of_game(message: String):
 	yield($GameOver, "finished")
 	PlayerData.new_game()
 	set_paused(false)
+	get_tree().change_scene("res://code/MainScreen.tscn")
 
 
 func end_of_level():
