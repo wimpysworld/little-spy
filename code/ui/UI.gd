@@ -22,6 +22,12 @@ var clock = null
 var last_second := 0
 
 
+func _on_Retry_button_up() -> void:
+	set_paused(false)
+	PlayerData.retry_level()
+	get_tree().reload_current_scene()
+
+
 func _ready():
 	set_paused(false)
 	$PauseOverlay/PauseMenu/Resume.visible = true
@@ -104,12 +110,12 @@ func end_of_game(message: String):
 	set_paused(true)
 	status.text = message
 	$PauseOverlay/PauseMenu/Resume.visible = false
+	$PauseOverlay/PauseMenu/Retry.visible = true
 	$PauseOverlay/PauseMenu/MainMenu.size_flags_vertical = SIZE_FILL
 	$GameOver.play()
 	yield($GameOver, "finished")
 	PlayerData.new_game()
 	set_paused(false)
-	get_tree().change_scene("res://code/MainScreen.tscn")
 
 
 func end_of_level():
@@ -145,6 +151,7 @@ func set_paused(value: bool):
 	paused = value
 	scene_tree.paused = value
 	pause_overlay.visible = value
+	$PauseOverlay/PauseMenu/Retry.visible = false
 	status.visible = value
 
 

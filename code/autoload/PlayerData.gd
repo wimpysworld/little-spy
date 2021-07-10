@@ -34,6 +34,12 @@ var time_limit := 300 setget set_time_limit, get_time_limit
 var time_remaining: int = 300 setget set_time_remaining, get_time_remaining
 var title_delay := 5.25 setget set_title_delay, get_title_delay
 
+# Used to store player metrics on entering a new level
+# So retrying a failed level has an accurate starting point.
+var retry_chutes := 0
+var retry_health := 0
+var retry_score := 0
+
 
 onready var vp = get_tree().get_root()
 onready var base_width = ProjectSettings.get_setting("display/window/size/width")
@@ -124,6 +130,23 @@ func new_level():
 	items_to_find = 0
 	level_complete = false
 	level += 1
+	time_limit = 300
+	time_remaining = 300
+	retry_chutes = chutes
+	retry_health = health
+	retry_score = score
+	emit_signal("new_level")
+
+
+func retry_level():
+	# Level is not incremented here
+	chutes = retry_chutes
+	dead = false
+	health = retry_health
+	items = 0
+	items_to_find = 0
+	level_complete = false
+	score =  retry_score
 	time_limit = 300
 	time_remaining = 300
 	emit_signal("new_level")

@@ -62,15 +62,21 @@ __meta__ = {
 
 [node name="Resume" type="Button" parent="PauseOverlay/PauseMenu"]
 margin_right = 384.0
-margin_bottom = 94.0
+margin_bottom = 87.0
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 text = "Resume"
 
-[node name="MainMenu" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
-margin_top = 98.0
+[node name="Retry" type="Button" parent="PauseOverlay/PauseMenu"]
+margin_top = 91.0
 margin_right = 384.0
-margin_bottom = 192.0
+margin_bottom = 178.0
+text = "Retry"
+
+[node name="MainMenu" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
+margin_top = 182.0
+margin_right = 384.0
+margin_bottom = 269.0
 text = "Main Menu"
 next_scene_path = "res://code/MainScreen.tscn"
 
@@ -219,3 +225,4 @@ stream = ExtResource( 10 )
 stream = ExtResource( 11 )
 
 [connection signal="button_up" from="PauseOverlay/PauseMenu/Resume" to="." method="_on_Resume_button_up"]
+[connection signal="button_up" from="PauseOverlay/PauseMenu/Retry" to="." method="_on_Retry_button_up"]
