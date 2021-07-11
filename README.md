@@ -161,19 +161,36 @@ includes everything I used from OGA.
 ## Screenshots
 
 <div align="center">
-  <img src=".github/screenshots/00-little-spy-main.png" alt="Little Spy - Main Screen" width="960">
+  <img src=".github/screenshots/level00-little-spy.png" alt="Little Spy - Main Screen" width="480">
   <br />
-  Main Screen
+  <b>Main Screen</b>
 </div>
+<br />
 
 <div align="center">
-  <img src=".github/screenshots/01-little-spy-level01.png" alt="Little Spy - Level 01" width="960">
+  <img src=".github/screenshots/level01-little-spy.png" alt="Little Spy - Level 01" width="480">
   <br />
-  Level 01 - "<i>Just Jumping</i>"
+  <b>Level 01</b> - "<i>Just Jumping</i>"
 </div>
+<br />
 
 <div align="center">
-  <img src=".github/screenshots/02-little-spy-level01-complete.png" alt="Little Spy - Level 01" width="960">
+  <img src=".github/screenshots/level02-little-spy.png" alt="Little Spy - Level 02" width="480">
   <br />
-  Level 01 - Completed
+  <b>Level 02</b> - "<i>One Item Required</i>"
 </div>
+<br />
+
+<div align="center">
+  <img src=".github/screenshots/level03-little-spy.png" alt="Little Spy - Level 03" width="480">
+  <br />
+  <b>Level 03</b> - "<i>Do the Stomp!</i>"
+</div>
+<br />
+
+<div align="center">
+  <img src=".github/screenshots/level04-little-spy.png" alt="Little Spy - Level 04" width="480">
+  <br />
+  <b>Level 04</b> - "<i>Floaty McFloat Face</i>"
+</div>
+<br />
