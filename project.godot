@@ -34,6 +34,10 @@ _global_script_class_icons={
 
 config/name="Little Spy"
 run/main_scene="res://code/MainScreen.tscn"
+boot_splash/image="res://graphics/splash.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.494118, 0.827451, 0.933333, 1 )
 config/icon="res://icon.png"
 
 [autoload]
