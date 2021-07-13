@@ -134,7 +134,7 @@ func spawn():
 
 
 func clone_thyself(can_spawn: bool):
-	if can_spawn and not self._first_spawn:
+	if can_spawn and not _first_spawn:
 		var rng = RandomNumberGenerator.new()
 		var thyself = self.duplicate()
 		thyself.direction.x = IDLE
@@ -178,9 +178,9 @@ func enemy_attacked(new_direction: float):
 		# Disable the player mask so that the player can not stomp the stomped sprite
 		$StompArea2D.set_collision_mask_bit(0, false)
 
-		clone_thyself(respawn)
 		$Hit.play()
 		yield($Hit, "finished")
+		clone_thyself(respawn)
 		queue_free()
 	else:
 		# Make the enemy passive after being kicked.
@@ -211,9 +211,9 @@ func enemy_stomped():
 		# Disable the player mask so that the player can not stomp the stomped sprite
 		$StompArea2D.set_collision_mask_bit(0, false)
 
-		clone_thyself(respawn)
 		$Squish.play()
 		yield($Squish, "finished")
+		clone_thyself(respawn)
 		queue_free()
 	else:
 		$Ding.play()
