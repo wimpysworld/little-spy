@@ -29,6 +29,9 @@ func _ready():
 		$Guard.stow_parachute()
 		$Soldier.stow_parachute()
 
+	# Hide the quit button in the HTML5 version
+	if OS.get_name() == "HTML5":
+		$Menu/QuitButton.visible = false
 
 
 func _process(_delta: float):
