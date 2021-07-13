@@ -170,7 +170,7 @@ detect_voids = false
 initial_direction = 1
 
 [node name="Player" parent="." instance=ExtResource( 15 )]
-position = Vector2( 1376, 52 )
+position = Vector2( 416, 96 )
 
 [node name="CameraLerp" parent="Player" index="0"]
 limit_left = 0
