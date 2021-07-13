@@ -11,6 +11,13 @@ export_presets.cfg
 *.dmg
 *.exe
 *.pck
+*.snap
+*.tar.xz
 *.translation
+*.x86
 *.x86_64
 *.zip
+
+# Project exports
+builds/*
+
