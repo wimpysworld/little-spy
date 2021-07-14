@@ -5,6 +5,7 @@
 </h1>
 <div align="center">
 <a href="https://wimpress.itch.io/little-spy" target="_blank"><img width="128" src="https://jessemillar.github.io/available-on-itchio-badge/badge-bw.png" /></a>
+<a href="https://snapcraft.io/little-spy"><img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" /></a>
 </div>
 
 ## Little Spy
