@@ -52,6 +52,8 @@ parts:
       - libxinerama1
       - libxrandr2
       - libxrender1
+    prime:
+      - -usr/lib/x86_64-linux-gnu/libLLVM-11*
 
 apps:
   little-spy:
