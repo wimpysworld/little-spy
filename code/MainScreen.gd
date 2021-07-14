@@ -22,7 +22,7 @@ func _ready():
 	$Menu.visible = false
 	$Guard.direction.x = 0
 	$Soldier.direction.x = 0
-	$Version.text = PlayerData.VERSION
+	$Version.text = Project.VERSION
 	hide_instructions()
 	if PlayerData.intro_played:
 		$Player.stow_parachute()

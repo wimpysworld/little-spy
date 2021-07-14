@@ -43,6 +43,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerData="*res://code/autoload/PlayerData.tscn"
+Project="*res://code/autoload/Project.gd"
 
 [display]
 
