@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=2.5
+Encoding=UTF-8
+Name=Little Spy
+Comment=Recover stolen intelligence and technology
+Icon=${SNAP}/meta/gui/little-spy.png
+Exec=little-spy
+Terminal=false
+StartupNotify=false
+Categories=Game;

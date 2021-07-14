@@ -1,0 +1,73 @@
+name: little-spy
+version: '1.0.4'
+base: core20
+summary: 2D platformer. Recover stolen intelligence and technology.
+description: |
+ Airdrop into an enemy stronghold, recover stolen intelligence and technology.
+
+ Collect as much stolen intelligence and technology as you can and get to the
+ extraction point before the helicopter leaves without you. Earn a higher agent
+ ranking by collecting more items and complete the mission as fast as possible
+ to earn a higher bonus.
+
+grade: stable
+confinement: strict
+compression: lzo
+
+layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
+    symlink: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
+  /usr/share/alsa:
+    symlink: $SNAP/usr/share/alsa
+
+parts:
+  alsa-mixin:
+    plugin: dump
+    source: https://github.com/diddlesnaps/snapcraft-alsa.git
+    source-subdir: snapcraft-assets
+    build-packages:
+      - libasound2-dev
+    stage-packages:
+      - libasound2
+      - libasound2-plugins
+
+  desktop:
+    after: [ alsa-mixin ]
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: glib-only
+    plugin: make
+    build-packages:
+      - libglib2.0-dev
+    stage-packages:
+      - libglib2.0-bin
+
+  little-spy:
+    after: [ desktop ]
+    plugin: dump
+    source: https://github.com/wimpysworld/little-spy/releases/download/v$SNAPCRAFT_PROJECT_VERSION/little-spy-v$SNAPCRAFT_PROJECT_VERSION-linux-x86_64.tar.xz
+    stage-packages:
+      - libglu1-mesa
+      - libxcursor1
+      - libxi6
+      - libxinerama1
+      - libxrandr2
+      - libxrender1
+
+apps:
+  little-spy:
+    command: Little-Spy.x86_64
+    command-chain:
+      - bin/desktop-launch
+      - snap/command-chain/alsa-launch
+    environment:
+      ALWAYS_USE_PULSEAUDIO: 1
+    plugs:
+      - audio-playback
+      - desktop
+      - desktop-legacy
+      - joystick
+      - network
+      - opengl
+      - pulseaudio
+      - wayland
+      - x11
