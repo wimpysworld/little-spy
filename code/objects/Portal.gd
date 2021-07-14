@@ -29,8 +29,6 @@ func _ready():
 
 
 func fly_helicopter(skip_animation: bool = false):
-	get_tree().call_group("enemies", "queue_free")
-
 	if not skip_animation:
 		anim_helicopter.play("spin_up")
 		yield(anim_helicopter, "animation_finished")

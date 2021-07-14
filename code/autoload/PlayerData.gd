@@ -134,6 +134,7 @@ func new_level():
 	retry_chutes = chutes
 	retry_health = health
 	retry_score = score
+	get_tree().call_group("enemies", "queue_free")
 	emit_signal("new_level")
 
 
@@ -148,6 +149,7 @@ func retry_level():
 	score =  retry_score
 	time_limit = 300
 	time_remaining = 300
+	get_tree().call_group("enemies", "queue_free")
 	emit_signal("new_level")
 
 
