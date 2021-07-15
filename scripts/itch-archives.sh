@@ -18,7 +18,6 @@ function mkdmg() {
     local IN="${1}/${SAFENAME}.zip"
     local UNCOMPRESSED="${PROJECT}/builds/${2}-uncompressed.dmg"
     local COMPRESSED="${PROJECT}/builds/${2}.dmg"
-
     if [ -e /usr/local/bin/dmg ]; then
         echo "Making ${COMPRESSED}..."
     else
@@ -29,9 +28,11 @@ function mkdmg() {
     unzip -q "${IN}" -d "/tmp/${SAFENAME}"
     local APPNAME=$(ls -1 "/tmp/${SAFENAME}/" | head -n1)
     local EXENAME=$(echo "${APPNAME}" | cut -d'.' -f1)
-    # Make sure the executable bit is set.
+    # Make sure file system permission are correct.
+	find "/tmp/${SAFENAME}/${APPNAME}" -type d -exec chmod 755 {} \;
+	find "/tmp/${SAFENAME}/${APPNAME}" -type f -exec chmod 644 {} \;
     chmod +x "/tmp/${SAFENAME}/${APPNAME}/Contents/MacOS/${EXENAME}"
-    genisoimage -quiet -D -V "${FULLNAME} ${VERSION}" -no-pad -r -apple -o "${UNCOMPRESSED}" "/tmp/${SAFENAME}/${APPNAME}"
+    genisoimage -quiet -D -V "${FULLNAME}" -no-pad -r -apple -o "${UNCOMPRESSED}" "/tmp/${SAFENAME}"
     if [ -e /usr/local/bin/dmg ]; then
         dmg "${UNCOMPRESSED}" "${COMPRESSED}" > /dev/null 2>&1
     fi
