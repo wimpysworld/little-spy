@@ -17,6 +17,7 @@ export_presets.cfg
 *.x86
 *.x86_64
 *.zip
+snap/gui/*.import
 
 # Project exports
 builds/*
