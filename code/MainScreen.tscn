@@ -621,7 +621,7 @@ position = Vector2( 1632, 784 )
 next_scene = ExtResource( 21 )
 
 [node name="InstructionsTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="button_up" from="Menu/StartGame" to="." method="_on_StartGame_button_up"]

@@ -1,7 +1,7 @@
 extends Control
 
 
-var instructions := "Xbox"
+var instructions := "Cursor"
 
 
 func _on_StartGame_button_up():
