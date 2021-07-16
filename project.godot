@@ -60,6 +60,8 @@ singletons=[  ]
 [global]
 
 android=false
+mouse=false
+input=false
 
 [input]
 

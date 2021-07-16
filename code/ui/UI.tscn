@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://music/game-over.ogg" type="AudioStream" id=1]
 [ext_resource path="res://code/ui/ui_theme.tres" type="Theme" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://graphics/medal-silver.png" type="Texture" id=13]
 [ext_resource path="res://graphics/medal-gold.png" type="Texture" id=14]
 [ext_resource path="res://graphics/medal-border.png" type="Texture" id=15]
+[ext_resource path="res://code/ui/TouchControl.tscn" type="PackedScene" id=16]
 
 [node name="UI" type="Control"]
 pause_mode = 2
@@ -28,8 +29,6 @@ margin_right = 960.0
 margin_bottom = 540.0
 script = ExtResource( 5 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -223,6 +222,10 @@ stream = ExtResource( 10 )
 
 [node name="Urgent" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+
+[node name="TouchControl" parent="." instance=ExtResource( 16 )]
+margin_top = 609.0
+margin_bottom = 609.0
 
 [connection signal="button_up" from="PauseOverlay/PauseMenu/Resume" to="." method="_on_Resume_button_up"]
 [connection signal="button_up" from="PauseOverlay/PauseMenu/Retry" to="." method="_on_Retry_button_up"]
