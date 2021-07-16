@@ -612,11 +612,6 @@ tracks/4/keys = {
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": false,
-"name": "soldier_parachute",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": false,
 "name": "guard_parachute",
 "speed": 1.0
 }, {
@@ -628,6 +623,11 @@ animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": false,
 "name": "spy_parachute",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "soldier_parachute",
 "speed": 5.0
 } ]
 
