@@ -2,6 +2,9 @@ extends Control
 
 
 func _ready():
+	if OS.get_name() == "HTML5":
+		$Menu/QuitButton.visible = false
+
 	$Results/Status.text = "Final Score: %s" % PlayerData.pad_score()
 	$MissionAccomplished.play()
 	yield($MissionAccomplished, "finished")
