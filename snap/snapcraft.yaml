@@ -19,6 +19,8 @@ layout:
     symlink: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
   /usr/share/alsa:
     symlink: $SNAP/usr/share/alsa
+  /usr/share/libdrm/amdgpu.ids:
+    symlink: $SNAP/usr/share/libdrm/amdgpu.ids
 
 parts:
   alsa-mixin:
@@ -52,8 +54,6 @@ parts:
       - libxinerama1
       - libxrandr2
       - libxrender1
-    prime:
-      - -usr/lib/x86_64-linux-gnu/libLLVM-11*
 
 apps:
   little-spy:
