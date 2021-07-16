@@ -54,7 +54,9 @@ func _input(_event: InputEvent):
 func _on_InstructionsTimer_timeout():
 	if $Player.is_on_floor():
 		hide_instructions()
-		if instructions == "Xbox":
+		if OS.has_touchscreen_ui_hint():
+			instructions = "Xbox"
+		elif instructions == "Xbox":
 			instructions = "WASD"
 		elif instructions == "WASD":
 			instructions = "Cursor"
@@ -71,7 +73,7 @@ func hide_instructions():
 
 
 func show_instructions():
-	$Options.visible = true
+	$Options.visible = not OS.has_touchscreen_ui_hint()
 
 	# Hide irrelevant options when running the webapp
 	if OS.get_name() == "HTML5":
