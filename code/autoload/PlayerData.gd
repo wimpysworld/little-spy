@@ -74,7 +74,7 @@ func _process(_delta: float):
 func set_fullscreen():
 	var window_size = OS.get_screen_size()
 
-	if OS.get_name() == 'X11' or window_size == base_size:
+	if OS.get_name() == 'X11' or OS.get_name() == 'OSX' or window_size == base_size:
 		OS.set_window_fullscreen(true)
 	else:
 		var scale = min(window_size.x / base_size.x, window_size.y / base_size.y)
@@ -95,7 +95,7 @@ func set_fullscreen():
 
 
 func set_windowed():
-	if OS.get_name() == 'OSX':
+	if OS.get_name() != "X11" and OS.get_name() != "Windows":
 		return
 
 	var window_size = OS.get_screen_size()
