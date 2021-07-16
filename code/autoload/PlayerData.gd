@@ -95,6 +95,9 @@ func set_fullscreen():
 
 
 func set_windowed():
+	if OS.get_name() == 'OSX':
+		return
+
 	var window_size = OS.get_screen_size()
 	var scale = min(window_size.x / base_size.x, window_size.y / base_size.y) * scale_factor
 	var scaled_size = (base_size * scale).round()
