@@ -20,7 +20,7 @@ height = 18.0
 extents = Vector2( 24, 24 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 16.4776, 7 )
+extents = Vector2( 22.71, 7 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8.48803, 13.8871 )
@@ -83,7 +83,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
-position = Vector2( 0, 27 )
+position = Vector2( 0, 29 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
@@ -93,6 +93,9 @@ __meta__ = {
 "attack",
 ]]
 collision_mask = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackLeft"]
 position = Vector2( 33, -4 )
@@ -105,6 +108,9 @@ __meta__ = {
 "attack",
 ]]
 collision_mask = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRight"]
 position = Vector2( -33, -4 )
