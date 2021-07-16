@@ -54,6 +54,8 @@ parts:
       - libxinerama1
       - libxrandr2
       - libxrender1
+    prime:
+      - -usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libLLVM-11*
 
 apps:
   little-spy:
