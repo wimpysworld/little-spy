@@ -12,20 +12,21 @@ radius = 29.0
 height = 0.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 27 )
+extents = Vector2( 8, 29.2526 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6, 31 )
+extents = Vector2( 6, 27.0138 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 6, 31 )
+extents = Vector2( 6, 26.9741 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 25
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="Actor" parent="." instance=ExtResource( 2 )]
@@ -69,7 +70,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactLeft"]
 modulate = Color( 0.876562, 0.0827637, 0.882812, 1 )
-position = Vector2( -33, 1 )
+position = Vector2( -32, 6 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
@@ -85,7 +86,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactRight"]
-position = Vector2( 33, 1 )
+position = Vector2( 32, 6 )
 shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
