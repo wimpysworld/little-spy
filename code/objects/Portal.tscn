@@ -126,7 +126,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 40, 24 )
+extents = Vector2( 16.5, 18 )
 
 [sub_resource type="Animation" id=13]
 length = 0.8
@@ -186,9 +186,6 @@ tracks/1/keys = {
 monitorable = false
 collision_layer = 0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Helicopter" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
@@ -205,11 +202,8 @@ stream = ExtResource( 3 )
 volume_db = -6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 50, 15 )
+position = Vector2( 40.5, 15 )
 shape = SubResource( 12 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="TransitionLayer" type="CanvasLayer" parent="."]
 layer = 100
