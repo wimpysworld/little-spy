@@ -24,9 +24,6 @@ radius = 32.0
 
 [node name="TouchControl" type="Control"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="left" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.627451 )
@@ -34,6 +31,7 @@ position = Vector2( 32, 128 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 2 )
 shape = SubResource( 1 )
+passby_press = true
 action = "move_left"
 __meta__ = {
 "_edit_lock_": true
@@ -45,6 +43,7 @@ position = Vector2( 256, 128 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 3 )
 shape = SubResource( 2 )
+passby_press = true
 action = "move_right"
 __meta__ = {
 "_edit_lock_": true
@@ -67,6 +66,7 @@ position = Vector2( 1696, 128 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 5 )
 shape = SubResource( 4 )
+passby_press = true
 action = "kick"
 __meta__ = {
 "_edit_lock_": true
